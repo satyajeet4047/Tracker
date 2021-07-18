@@ -21,7 +21,7 @@ minutes. Location updated only when app is foreground.
 
 
 #### Third-party Library Used :
-* Picasso & Picasso-transformations - Image loading Libraries[link](https://github.com/square/picasso)
+* Picasso & Picasso-transformations - Image loading Libraries [link](https://github.com/square/picasso)
 * Signature Pad - For drawing signatures [link](https://github.com/gcacace/android-signaturepad)
 
 
