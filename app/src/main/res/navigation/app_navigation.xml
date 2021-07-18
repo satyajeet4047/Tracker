@@ -17,5 +17,13 @@
         <action
             android:id="@+id/action_dashboardFragment_to_signatureFragment"
             app:destination="@id/signatureFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_photosFragment"
+            app:destination="@id/photosFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.example.tracker.ui.photo.PhotosFragment"
+        android:label="fragment_photos"
+        tools:layout="@layout/fragment_photos" />
 </navigation>

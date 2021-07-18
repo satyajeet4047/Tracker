@@ -12,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.NavUtils
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -20,10 +19,13 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.tracker.R
 import com.example.tracker.databinding.FragmentSignatureBinding
+import com.example.tracker.util.AppConstants
 import com.example.tracker.util.RequestStatus
-import com.github.gcacace.signaturepad.views.SignaturePad
-import java.lang.String
 
+
+/**
+ *  Fragment which enables user to sign electronically which is stored in file system
+ */
 
 class SignatureFragment : Fragment() {
 
@@ -48,8 +50,6 @@ class SignatureFragment : Fragment() {
             }
         }
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,15 +65,7 @@ class SignatureFragment : Fragment() {
         setupObservers()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                _navController.navigateUp()
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
+
     private fun setupUi() {
         _navController = Navigation.findNavController(_binding.root)
         _binding.btnClear.setOnClickListener {
@@ -98,15 +90,15 @@ class SignatureFragment : Fragment() {
 
     private fun setupObservers() {
 
-        _viewModel.getRequestStatus().observe(viewLifecycleOwner, {
-            when (it) {
+        _viewModel.getRequestStatus().observe(viewLifecycleOwner, { request ->
+            when (request) {
                 RequestStatus.SUCCESS -> {
                     showProgress(false)
                     showToast(resources.getString(R.string.save_success))
                     _navController.navigateUp()
                 }
                 RequestStatus.FAILURE -> {
-                    showToast(resources.getString(R.string.save_error))
+                    showToast(resources.getString(R.string.something_went_wrong))
                     showProgress(false)
                 }
                 RequestStatus.LOADING -> {
@@ -125,12 +117,10 @@ class SignatureFragment : Fragment() {
     }
 
     private fun saveData() {
-        if(!_binding.signatureView.isEmpty) {
+        if (!_binding.signatureView.isEmpty) {
             if (Environment.isExternalStorageEmulated()) {
-                val removable = Environment.getExternalStorageDirectory()
-                val path = String.valueOf(removable)
                 _viewModel.saveSignature(
-                    path,
+                    AppConstants.SIGNATURE_PATH,
                     _binding.signatureView.signatureBitmap
                 )
             } else {
@@ -176,6 +166,7 @@ class SignatureFragment : Fragment() {
             loadingDialog?.dismiss()
         }
     }
+
     //Clear dialogs to avoid any possible memory leak
     override fun onDestroy() {
         super.onDestroy()

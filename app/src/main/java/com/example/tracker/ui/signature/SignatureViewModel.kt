@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.tracker.util.AppConstants
 import com.example.tracker.util.RequestStatus
 import java.io.File
 
@@ -24,8 +25,8 @@ class SignatureViewModel : ViewModel() {
         requestStatus.postValue(RequestStatus.LOADING)
         try {
 
-            File(path, "signature.png").apply {
-                writeBitmap(bitmap, Bitmap.CompressFormat.PNG, 85)
+            File(path, AppConstants.SIGNATURE_FILE_NAME).apply {
+                writeBitmap(bitmap, Bitmap.CompressFormat.JPEG, 85)
             }
             requestStatus.postValue(RequestStatus.SUCCESS)
 

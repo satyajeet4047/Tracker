@@ -5,11 +5,13 @@
     <string name="permission_dialog_title">Warning</string>
     <string name="loading">Loading…</string>
     <string name="no_sd_card">No SD card mounted</string>
-    <string name="save_error">Failed to save signature</string>
     <string name="save_success">Signature saved successfully</string>
     <string name="btn_save_text">Save</string>
     <string name="btn_clear_text">Clear</string>
     <string name="empty_signature">Signature is empty</string>
     <string name="btn_signature_text">Signature</string>
     <string name="btn_photos_text">Photos</string>
+    <string name="photo_save_success">Photo saved successfully</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="ok">Ok</string>
 </resources>

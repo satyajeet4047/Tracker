@@ -19,7 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class DashboardFragment : Fragment() {
 
-    lateinit var _binding : FragmentDashboardBinding
+    private lateinit var _binding : FragmentDashboardBinding
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -54,6 +54,9 @@ class DashboardFragment : Fragment() {
 
         _binding.btnSignature.setOnClickListener {
             Navigation.findNavController(_binding.root).navigate(R.id.action_dashboardFragment_to_signatureFragment)
+        }
+        _binding.btnPhotos.setOnClickListener {
+            Navigation.findNavController(_binding.root).navigate(R.id.action_dashboardFragment_to_photosFragment)
         }
 
     }
