@@ -115,16 +115,14 @@ class DashboardFragment : Fragment() {
             3. request permission and then start service to fetch it
      */
     private fun requestLocation() {
-        when {
-            checkPermission() -> {
+            if(checkPermission()) {
                 mapFragment?.getMapAsync(callback)
                 locationServiceIntent = Intent(requireContext(), LocationService::class.java)
-            }
+            } else if(
             shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) ||
-                    shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION) -> {
+                    shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_COARSE_LOCATION)){
                 showDialog()
-            }
-            else -> {
+            } else {
                 _requestPermissionsLauncher.launch(
                     arrayOf(
                         Manifest.permission.ACCESS_FINE_LOCATION,
@@ -132,7 +130,6 @@ class DashboardFragment : Fragment() {
                     )
                 )
             }
-        }
     }
 
     private fun checkPermission(): Boolean {
