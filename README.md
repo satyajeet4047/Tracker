@@ -30,4 +30,4 @@ minutes.
 
 ## Demo
 
-<img src="/art/TrackerApp.gif" width="250" height="450"/>
+<img src="/art/Tracker.gif" width="250" height="400"/>
