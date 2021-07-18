@@ -28,7 +28,8 @@ minutes. Location updated only when app is foreground.
 #### Todo
 - [ ] Cache - Store selected photo information in database. 
 - [ ] Animation for map marker and live tracking route.
-- [ ] Test cases 
+- [ ] Refactore - Create base classes for activity, fragment.
+- [ ] Unit Tests
 
 ## Demo
 
