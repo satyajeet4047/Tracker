@@ -1,9 +1,9 @@
 # Tracker
-● eSignature – This will allow a user to sign on the mobile screen. Convert this to an image and save it in SD
+* eSignature – This will allow a user to sign on the mobile screen. Convert this to an image and save it in SD
 card.
-● Photo – This will allow a user to select existing photos from gallery and display it on screen (multi select)
+* Photo – This will allow a user to select existing photos from gallery and display it on screen (multi select)
 or take new pictures and save in SD card.
-● Location - The real-time accurate location of the user at a regular interval of 2
+* Location - The real-time accurate location of the user at a regular interval of 2
 minutes.
 
 #### The app has following packages:
@@ -19,8 +19,8 @@ minutes.
 * Location - Google maps api
 
 #### Third-party Library Used :
-* Picasso & Picasso-transformations - Image loading Libraries
-* Signature Pad - For drawing signatures [a link](https://github.com/gcacace/android-signaturepad)
+* Picasso & Picasso-transformations - Image loading Libraries[link](https://github.com/square/picasso)
+* Signature Pad - For drawing signatures [link](https://github.com/gcacace/android-signaturepad)
 
 
 #### Todo
