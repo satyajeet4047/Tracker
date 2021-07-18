@@ -1,0 +1,33 @@
+# Tracker
+● eSignature – This will allow a user to sign on the mobile screen. Convert this to an image and save it in SD
+card.
+● Photo – This will allow a user to select existing photos from gallery and display it on screen (multi select)
+or take new pictures and save in SD card.
+● Location - The real-time accurate location of the user at a regular interval of 2
+minutes.
+
+#### The app has following packages:
+1. **ui**: View classes along with their corresponding ViewModel.
+2. **utils**: Utility classes.
+3. **service** : background services.
+
+
+#### Components Used :
+* LiveData -Architecture Component
+* ViewModel - Architecture Component
+* Navigation- Architecture Component
+* Location - Google maps api
+
+#### Third-party Library Used :
+* Picasso & Picasso-transformations - Image loading Libraries
+* Signature Pad - For drawing signatures [a link](https://github.com/gcacace/android-signaturepad)
+
+
+#### Todo
+- [ ] Cache - Store seletced photo information in database. 
+- [ ] Animation for map marker and live tracking route.
+- [ ] Test cases 
+
+## Demo
+
+<img src="/art/TrackerApp.gif" width="250" height="450"/>
