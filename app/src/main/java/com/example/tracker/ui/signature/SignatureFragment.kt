@@ -46,7 +46,7 @@ class SignatureFragment : Fragment() {
             if (isGranted) {
                 saveData()
             } else {
-                showDialog(true)
+                showDialog()
             }
         }
 
@@ -78,7 +78,7 @@ class SignatureFragment : Fragment() {
                     saveData()
                 }
                 shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE) -> {
-                    showDialog(true)
+                    showDialog()
                 }
                 else -> {
                     _requestPermissionLauncher.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -135,7 +135,7 @@ class SignatureFragment : Fragment() {
         Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
     }
 
-    private fun showDialog(isVisible: Boolean) {
+    private fun showDialog() {
         if (alertDialog == null) {
             alertDialog = AlertDialog.Builder(context)
                 .setTitle(resources.getString(R.string.permission_dialog_title))
@@ -144,11 +144,7 @@ class SignatureFragment : Fragment() {
                     dialog.dismiss()
                 }.create()
         }
-        if (isVisible) {
-            alertDialog?.show()
-        } else {
-            alertDialog?.dismiss()
-        }
+        alertDialog?.show()
     }
 
     private fun showProgress(isVisible: Boolean) {
